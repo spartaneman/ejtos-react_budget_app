@@ -1,9 +1,11 @@
 import React, {useContext} from 'react';
 import {AppContext} from '../context/AppContext';
 import {TiDelete} from 'react-icons/ti';
+import {FcPlus} from 'react-icons/fc';
+import {AiFillMinusCircle} from 'react-icons/ai';
 
 const ExpenseItem = (props) => {
-    const { dispatch } = useContext(AppContext);
+    const { dispatch, currency } = useContext(AppContext);
 
 
     //this is the action that will be dispatched to 
@@ -28,12 +30,26 @@ const ExpenseItem = (props) => {
             payload: expense
         });
     };
+    const decreaseAllocation =(name)=>{
+        //expense object
+        const expense = {
+            name: name,
+            cost: 10,
+        };
+
+        //add expense action
+        dispatch({
+            type: 'RED_EXPENSE',
+            payload: expense
+        });
+    };
 
     return(
         <tr>
             <td>{props.name}</td>
-            <td>£{props.cost}</td>
-            <td><button onClick={event=> increaseAllocation(props.name)}>+</button> </td>
+            <td>{currency}{props.cost}</td>
+            <td><FcPlus size='1.5em' onClick={event=> increaseAllocation(props.name)}>+</FcPlus> </td>
+            <td><AiFillMinusCircle size='1.5em' color='red' onClick={event=> decreaseAllocation(props.name)}>-</AiFillMinusCircle></td>
             <td><TiDelete size='1.5em' onClick={handleDeleteExpense}></TiDelete></td>
         </tr>
     );

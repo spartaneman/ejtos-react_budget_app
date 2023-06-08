@@ -22,10 +22,10 @@ const Currency= () =>{
     return(
         <div  >
             <select style={optionStyle} onChange={currencyChangeHandler} value={currency} > 
-                <option value="$" name="dollar">Currency ($ Dollar)</option>
-                <option value="£" name="pound">Currency (£ Pound)</option>
-                <option value="€" name="euro">Currency (€Euro)</option>
-                <option value="╣" name="ruppee">Currency (╣Ruppee)</option>
+                <option value="$" name="dollar" style={optionStyle}>Currency ($ Dollar)</option>
+                <option value="£" name="pound" style={optionStyle}>Currency (£ Pound)</option>
+                <option value="€" name="euro" style={optionStyle}>Currency (€Euro)</option>
+                <option value="╣" name="ruppee" style={optionStyle}>Currency (╣Ruppee)</option>
             </select>
         </div>
     );

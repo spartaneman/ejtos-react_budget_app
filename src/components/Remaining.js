@@ -2,7 +2,7 @@ import React, {useContext} from 'react';
 import { AppContext} from '../context/AppContext';
 
 const Remaining = ()=>{
-    const {expenses, budget} = useContext(AppContext);
+    const {expenses, budget, currency} = useContext(AppContext);
     const totalExpenses = expenses.reduce((total, item)=> {
         //total is the running tally, while item is the item 
         //that the array is currently on. 
@@ -12,7 +12,7 @@ const Remaining = ()=>{
     const alertType = totalExpenses > budget ? 'alert-danger': 'alert-success';
     return (
         <div className={`alert ${alertType}`}>
-            <span>Remaining: £{budget - totalExpenses}</span>
+            <span>Remaining: {currency}{budget - totalExpenses}</span>
         </div>
     );
 };
