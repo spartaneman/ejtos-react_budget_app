@@ -7,11 +7,11 @@ import React, { useContext} from 'react';
 import {AppContext} from '../context/AppContext';
 
 const Budget = () => {
-    const{budget} = useContext(AppContext);
+    const{ budget } = useContext(AppContext);
     return (
         //to make the £ you hold down the alt key and type 0163
         <div className='alert alert-secondary'>
-            <span>Budget: £</span>
+            <span>Budget: £{budget}</span>
         </div>
     );
 
